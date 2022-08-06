@@ -43,7 +43,6 @@ export const handler: Handlers<ArticleData[]> = {
       .split(/\<pre\>/g)
       .filter((v) => v.match(/^<code>/))
       .map((v) => v.split(/<\/code><\/pre>/g)[0].replace(/<.*>/g, ""));
-    console.log(codeBolcks);
     const highlightedCodeBlocks = (await Promise.all(
       codeBolcks
         .map((v) =>
@@ -59,6 +58,7 @@ export const handler: Handlers<ArticleData[]> = {
         .map((v) => highlightText(v, detectLanguage(v).toString(), true)),
     ))
       .map((v) => `<div class="shj-lang-[code-language]">${v}</div>`);
+    console.log(highlightedCodeBlocks);
     codeBolcks.forEach((v, index) =>
       microCmsResponse.contents[0].body = microCmsResponse.contents[0].body
         .replace(v, highlightedCodeBlocks[index])

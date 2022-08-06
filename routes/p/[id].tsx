@@ -59,7 +59,6 @@ export const handler: Handlers<ArticleData[]> = {
       microCmsResponse.contents[0].body = microCmsResponse.contents[0].body
         .replace(v, highlightedCodeBlocks[index])
     );
-    console.log(microCmsResponse);
 
     return ctx.render(microCmsResponse.contents);
   },

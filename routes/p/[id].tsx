@@ -10,11 +10,11 @@ import { MicroCmsResponse } from "../../types/microCmsResponse.ts";
 import { ArticleData } from "../../types/articleData.ts";
 import ArticleHeader from "../../components/p/ArticleHeader.tsx";
 import ShareButton from "../../islands/ShareButton.tsx";
-import { logger } from "../../utils/accessLogger.ts";
+import { AccessLogger } from "../../utils/AccessLogger.ts";
 
 export const handler: Handlers<ArticleData[]> = {
   async GET(req, ctx) {
-    logger(ctx.remoteAddr as Deno.NetAddr, req.url);
+    new AccessLogger().logger(ctx.remoteAddr as Deno.NetAddr, req.url);
 
     const { id } = ctx.params;
 

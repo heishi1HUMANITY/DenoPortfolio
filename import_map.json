@@ -7,6 +7,7 @@
     "@twind": "./utils/twind.ts",
     "twind": "https://esm.sh/twind@0.16.17",
     "twind/": "https://esm.sh/twind@0.16.17/",
-    "datetime": "https://deno.land/std@0.148.0/datetime/mod.ts"
+    "datetime": "https://deno.land/std@0.148.0/datetime/mod.ts",
+    "assert": "https://deno.land/std@0.151.0/testing/asserts.ts"
   }
 }

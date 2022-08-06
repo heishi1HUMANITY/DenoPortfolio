@@ -7,11 +7,11 @@ import { ArticleInfo } from "../../types/articleInfo.ts";
 import Head from "../../components/Head.tsx";
 import Header from "../../components/Header.tsx";
 import ArticleCard from "../../components/article/ArticleCard.tsx";
-import { logger } from "../../utils/accessLogger.ts";
+import { AccessLogger } from "../../utils/AccessLogger.ts";
 
 export const handler: Handlers<ArticleInfo[]> = {
   async GET(req, ctx) {
-    logger(ctx.remoteAddr as Deno.NetAddr, req.url);
+    new AccessLogger().logger(ctx.remoteAddr as Deno.NetAddr, req.url);
 
     const { page } = ctx.params;
 

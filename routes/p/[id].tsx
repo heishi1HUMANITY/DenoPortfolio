@@ -43,6 +43,7 @@ export const handler: Handlers<ArticleData[]> = {
       .split(/\<pre\>/g)
       .filter((v) => v.match(/^<code>/))
       .map((v) => v.split(/<\/code><\/pre>/g)[0].replace(/<.*>/g, ""));
+    console.log(codeBolcks);
     const highlightedCodeBlocks = (await Promise.all(
       codeBolcks
         .map((v) =>

@@ -55,7 +55,7 @@ export const handler: Handlers<ArticleData[]> = {
             .replaceAll("&gt;", ">")
             .replaceAll("&nbsp;", " ")
         )
-        .map((v) => highlightText(v, detectLanguage(v).toString(), true)),
+        .map((v) => highlightText(v, detectLanguage(v).toString(), false)),
     ))
       .map((v) => `<div class="shj-lang-[code-language]">${v}</div>`);
     codeBolcks.forEach((v, index) =>

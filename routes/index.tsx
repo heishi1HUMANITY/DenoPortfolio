@@ -9,9 +9,12 @@ import AboutName from "../components/index/AboutName.tsx";
 import AboutStatus from "../components/index/AboutStatus.tsx";
 import AboutSkill from "../components/index/AboutSkill.tsx";
 import Header from "../components/Header.tsx";
+import { logger } from '../utils/accessLogger.ts';
 
 export const handler: Handlers<SkillData[]> = {
-  async GET(_, ctx) {
+  async GET(req, ctx) {
+    logger(ctx.remoteAddr as Deno.NetAddr, req.url);
+
     const fetchResult = await fetch(
       "https://heishi1humanity.microcms.io/api/v1/skills?fields=id,title,body,type&limit=100&orders=createdAt",
       {

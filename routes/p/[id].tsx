@@ -10,9 +10,12 @@ import { MicroCmsResponse } from "../../types/microCmsResponse.ts";
 import { ArticleData } from "../../types/articleData.ts";
 import ArticleHeader from "../../components/p/ArticleHeader.tsx";
 import ShareButton from "../../islands/ShareButton.tsx";
+import { logger } from '../../utils/accessLogger.ts';
 
 export const handler: Handlers<ArticleData[]> = {
-  async GET(_, ctx) {
+  async GET(req, ctx) {
+    logger(ctx.remoteAddr as Deno.NetAddr, req.url);
+
     const { id } = ctx.params;
 
     const fetchResult = await fetch(

@@ -1,0 +1,23 @@
+main {
+  word-break: break-all;
+}
+main a {
+  color: #1919bb;
+  border-bottom: #1919bb 1px solid;
+}
+main a:hover {
+  opacity: 0.7;
+}
+main iframe {
+  max-width: 100%;
+  height: 300px;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    color: rgb(247, 250, 252);
+  }
+  main a {
+    color: #8585ee;
+    border-bottom: #8585ee 1px solid;
+  }
+}
